@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(to top, #1e3c72, #2a5298);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle animated cloud background */
+body::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: url('https://www.transparenttextures.com/patterns/clouds.png') repeat;
+  opacity: 0.05;
+  animation: cloudScroll 60s linear infinite;
+  z-index: 0;
+}
+
+.container {
+  z-index: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.5s ease;
+}
+
+input[type="text"] {
+  padding: 0.6rem;
+  width: 60%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #ff8c00;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #ffa733;
+}
+
+.weather {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+.sun, .moon, .snow, .hot-air {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.sun {
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #FFD700, #FFA500);
+  border-radius: 50%;
+  top: 8%;
+  right: 10%;
+  box-shadow: 0 0 40px 10px rgba(255, 215, 0, 0.5);
+  animation: spin 25s linear infinite, pulse 3s ease-in-out infinite;
+}
+
+.moon {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #ccc, #999);
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.3);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hot-air {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  bottom: 0;
+  left: 25%;
+  animation: rise 12s linear infinite, drift 5s ease-in-out infinite;
+}
+
+.snow {
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border-radius: 50%;
+  top: 0;
+  left: 70%;
+  animation: fall 8s linear infinite, sway 4s ease-in-out infinite;
+}
+
+/* Signature Styling */
+.signature {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 12px 20px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  z-index: 999;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+/* Themes */
+.day-theme {
+  background: linear-gradient(to top, #1e3c72, #2a5298);
+  color: #ffffff;
+}
+
+.night-theme {
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+  color: #cce7ff;
+}
+
+.night-theme .container {
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.night-theme .signature {
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+}
+
+/* Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes rise {
+  0% { bottom: -20px; opacity: 0; }
+  100% { bottom: 100%; opacity: 0.8; }
+}
+
+@keyframes fall {
+  0% { top: -10px; }
+  100% { top: 100%; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-15px); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes cloudScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

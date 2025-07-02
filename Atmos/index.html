@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atmos - Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated Background Elements -->
+  <div class="sun"></div>
+  <div class="moon"></div>
+  <div class="hot-air"></div>
+  <div class="snow"></div>
+
+  <!-- Weather Container -->
+  <div class="container">
+    <h1>Atmos Weather</h1>
+    <input type="text" id="locationInput" placeholder="Enter location (e.g. London or 22.57,88.36)" />
+    <button onclick="handleSearch()">Get Weather</button>
+    <div class="weather" id="weatherInfo"></div>
+  </div>
+
+  <!-- Signature -->
+  <div class="signature">
+    <span id="typedName"></span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
