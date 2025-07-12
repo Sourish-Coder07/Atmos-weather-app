@@ -1,5 +1,5 @@
 function getWeather(location = "London", auto = false) {
-  const apiKey = '5906c4295ed146dc993144151250207';
+  const apiKey = 'xxxxxxxxxxxxxxxxxxxxxxxxxx';
 
   const isCoordinate = /^-?\d+(\.\d+)?\s*,\s*-?\d+(\.\d+)?$/.test(location.trim());
   const queryParam = isCoordinate
